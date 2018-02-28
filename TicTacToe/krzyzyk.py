@@ -7,6 +7,7 @@ for i in range(9):
 	plansza.append(i)
 
 def menu():
+	print("		")
 	print("MENU")
 	print("*Wciśnij 1 aby rozpocząć nową grę!*")
 	print("*Wciśnij 2 aby wyjść z programu*")
@@ -24,6 +25,8 @@ def menu():
 	return None
 
 def plansza_wyswietl():
+	print("												")
+	print("												")
 	print("		|		|								")
 	print("	%s	|	%s	|	%s	" % (plansza[0], plansza[1], plansza[2]))
 	print("		|		|								")
@@ -40,7 +43,9 @@ def plansza_wyswietl():
 def wpisz_numer(strona):
 	while True:
 		try:
+			print("														")
 			numer = int(input("\nWybierz numer aby wstawić tam "+strona+": "))
+			print("														")
 		except:
 			print("Zastosuj się do instrukcji!")
 			continue
@@ -61,54 +66,36 @@ def wstaw(numer, strona):
 def sprawdz(strona):
 	if(plansza[0] == strona and plansza[1] == strona and plansza[2] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
+		return True
 		
 	if(plansza[3] == strona and plansza[4] == strona and plansza[5] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
+		return True
 		
 	if(plansza[6] == strona and plansza[7] == strona and plansza[8] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
-		
+		return True
+	
 	if(plansza[0] == strona and plansza[3] == strona and plansza[6] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
-		
+		return True		
+	
 	if(plansza[1] == strona and plansza[4] == strona and plansza[7] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
+		return True
 	
 	if(plansza[2] == strona and plansza[5] == strona and plansza[8] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
+		return True
 	
 	if(plansza[2] == strona and plansza[4] == strona and plansza[6] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
-		
+		return True
+	
 	if(plansza[0] == strona and plansza[4] == strona and plansza[8] == strona):
 		print("Grasz %s wygrał!" %(strona))
-		wygrana = True
-	else:
-		wygrana = False
-
-	return wygrana
-
+		return True
+	
 def wybierz():
 	while True:	
 		strona = str(input("Wybierz stronę gry, wpisz 'X' albo 'O': "))
@@ -120,7 +107,7 @@ def wybierz():
 				strona2 = 'X'
 				break
 
-						
+                
 		elif(strona == 'x' or strona == 'o'):
 			if(strona == 'x'):
 				strona2 = 'o'
